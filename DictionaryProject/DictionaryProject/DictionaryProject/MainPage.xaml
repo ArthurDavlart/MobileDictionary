@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:resources="clr-namespace:DictionaryProject"
+             x:Class="DictionaryProject.MainPage">
+
+    <StackLayout>
+        <Button Text = "{x:Static resources:Resource.AddWordBtn}" FontSize="Large" BorderWidth="1" 
+                VerticalOptions="CenterAndExpand" 
+        Clicked="OnButtonClicked" />
+        <ListView x:Name="wordsList"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding Words}"
+                  ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout x:Name="stackLayout" Spacing="8" Orientation="Horizontal">
+                                <StackLayout>
+                                    <Label Text="{Binding EnWord}" />
+                                    <Label Text="{Binding RuWord}" />
+                                </StackLayout>
+                                <Label Text="{Binding AddCounter}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" Margin="0, 0, 20, 0"/>
+                            </StackLayout>
+                            
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
